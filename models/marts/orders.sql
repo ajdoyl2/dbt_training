@@ -24,6 +24,10 @@ customers as (
 
 ),
 
+sale_dates as (
+    
+    select * from {{ ref('sale_dates') }}
+),
 
 final as (
 
@@ -35,6 +39,7 @@ final as (
         products.product_name,
         products.category,
         products.price,
+        sale_dates.sale_date is not null as is_sale_order,
         products.currency,
         orders.quantity,        
         transactions.cost_per_unit_in_usd,
@@ -53,6 +58,9 @@ final as (
 
     left join customers
         on orders.customer_id = customers.customer_id
+    
+    left join sale_dates
+        on orders.created_at_dt = sale_dates.sale_date
 
 )
 
