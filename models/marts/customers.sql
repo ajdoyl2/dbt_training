@@ -34,8 +34,7 @@ final as (
         customers_and_locations_joined.zip_code,
         employees.full_name as main_employee,
         employees.is_active as main_employee_is_active,
-        nvl(order_amounts_by_customer.total_revenue_in_usd, 0) 
-            as total_revenue_in_usd,
+        nvl(order_amounts_by_customer.total_revenue_in_usd, 0) as total_revenue_in_usd,
         nvl(order_amounts_by_customer.total_quantity, 0) as total_quantity,
         customers.created_at,
         customers.updated_at,
