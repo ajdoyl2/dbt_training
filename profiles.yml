@@ -1,0 +1,33 @@
+dbt_training:
+  outputs:
+    dev:
+      account: yl45797.east-us-2.azure
+      database: analytics_044
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: developer_044
+      schema: dbt_adoyle
+      threads: 1
+      type: snowflake
+      user: "{{ env_var('DBT_USER') }}"
+      warehouse: developer_wh_044
+    ci:
+      account: yl45797.east-us-2.azure
+      database: analytics_044
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: developer_044
+      schema: dbt_ci # QA/UAT/Etc.
+      threads: 1
+      type: snowflake
+      user: "{{ env_var('DBT_USER') }}"
+      warehouse: developer_wh_044
+    prod:
+      account: yl45797.east-us-2.azure
+      database: analytics_044
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: developer_044
+      schema: dbt_prod
+      threads: 1
+      type: snowflake
+      user: "{{ env_var('DBT_USER') }}"
+      warehouse: developer_wh_044
+  target: dev
