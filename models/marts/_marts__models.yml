@@ -14,4 +14,5 @@ models:
       - name: tax_in_usd
         tests:
           - not_negative
+  - name: top_customers
 
