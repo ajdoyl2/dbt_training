@@ -41,4 +41,6 @@ models:
       +schema: marts
       +tags:
         - p1 #priority 1
-      
+    utilities:
+      +materialized: table
+      +schema: utilities
