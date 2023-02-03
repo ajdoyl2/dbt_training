@@ -1,0 +1,17 @@
+version: 2
+
+exposures:
+  
+  - name: customer_performance_dashboard
+    type: dashboard
+    maturity: low
+    description: >
+      Did someone say "exponential growth"?
+
+    depends_on:
+      - ref('top_customers')
+      - source('tech_store', 'customer')
+
+    owner:
+      name: AJ
+      email: ajdoyle@me.com
